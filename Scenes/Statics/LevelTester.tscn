@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4eajgdedcaks"]
+
+[ext_resource type="PackedScene" uid="uid://h23fxu1uyt8f" path="res://Scenes/main.tscn" id="1_ltkcs"]
+[ext_resource type="PackedScene" uid="uid://cyesp48jibf7h" path="res://Scenes/World/cave_level_1.tscn" id="2_diba0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Main" parent="." instance=ExtResource("1_ltkcs")]
+
+[node name="Cave_Level_1" parent="Main" instance=ExtResource("2_diba0")]

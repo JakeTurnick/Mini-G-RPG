@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dawonffoeoj6x"]
+
+[ext_resource type="PackedScene" uid="uid://dqdxsxaorcyk4" path="res://Scenes/World/Tilesets/BasicArea.tscn" id="1_c4vqv"]
+[ext_resource type="PackedScene" uid="uid://ba68yl0xeg2o" path="res://Scenes/World/EntranceIndicator.tscn" id="2_2o6i0"]
+[ext_resource type="PackedScene" uid="uid://dde86yipj7oud" path="res://Scenes/Player/PlayerChar.tscn" id="3_jfo1i"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BasicArea" parent="." instance=ExtResource("1_c4vqv")]
+
+[node name="EntranceIndicator" parent="." instance=ExtResource("2_2o6i0")]
+position = Vector2(402, 158)
+ToLevelPath = "res://Scenes/World/cave_level_1.tscn"
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("3_jfo1i")]
+position = Vector2(404, 196)
+
+[connection signal="interactSignal" from="PlayerCharacter" to="EntranceIndicator" method="_on_player_character_interact_signal"]
