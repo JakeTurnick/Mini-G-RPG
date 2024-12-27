@@ -21,7 +21,7 @@ func goto_scene(path):
 func _deferred_goto_scene(path):
 	var testabs = get_tree().root.get_node("/root/Game")
 	var testrel = get_tree().root.get_node("./Game")
-	print("abs:", testabs, " rel:", testrel)
+	#print("abs:", testabs, " rel:", testrel)
 	
 	var transitionCanvas = ResourceLoader.load("res://Scenes/Statics/LoadingCanvas.tscn").instantiate()
 	get_tree().root.add_child(transitionCanvas, false, Node.INTERNAL_MODE_FRONT)

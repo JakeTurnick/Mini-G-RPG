@@ -52,6 +52,10 @@ size_flags_vertical = 6
 layout_mode = 2
 text = " start"
 
+[node name="BattleTestButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Battle Testing"
+
 [node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
@@ -66,3 +70,4 @@ texture = ExtResource("1_hpajh")
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/BattleTestButton" to="." method="_on_battle_test_button_pressed"]

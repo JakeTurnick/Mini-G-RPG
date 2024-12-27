@@ -11,3 +11,7 @@ func _on_start_button_button_up():
 func _on_options_button_button_up():
 	print("show options")
 	$MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/OptionsButton/Options_PopupPanel.popup()
+
+
+func _on_battle_test_button_pressed():
+	SceneManager.goto_scene("res://Scenes/World/battle_grounds_test.tscn")

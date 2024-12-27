@@ -8,10 +8,6 @@ func _ready():
 	#add_child(StartMenuScene.instantiate())
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func pauseGame():
 	get_tree().paused = true
 
