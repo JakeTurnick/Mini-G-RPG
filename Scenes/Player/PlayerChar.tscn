@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dde86yipj7oud"]
+[gd_scene load_steps=31 format=3 uid="uid://dde86yipj7oud"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerChar.gd" id="1_18kdt"]
 [ext_resource type="Texture2D" uid="uid://ssc7u23xetnu" path="res://Assets/Small-8-Direction-Characters_by_AxulArt/Small-8-Direction-Characters_by_AxulArt.png" id="1_c8vsd"]
@@ -241,8 +241,16 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gir1w"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjnol"]
+radius = 8.0
+height = 20.0
+
 [node name="PlayerCharacter" type="Node2D"]
 script = ExtResource("1_18kdt")
+
+[node name="Prevent Battle Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_mask = 2
@@ -264,3 +272,14 @@ drag_top_margin = 0.5
 drag_right_margin = 0.5
 drag_bottom_margin = 0.5
 editor_draw_drag_margin = true
+
+[node name="EnemyDetector" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/EnemyDetector"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_jjnol")
+
+[connection signal="timeout" from="Prevent Battle Timer" to="." method="_on_prevent_battle_timer_timeout"]
+[connection signal="area_entered" from="CharacterBody2D/EnemyDetector" to="." method="_on_enemy_detector_area_entered"]
