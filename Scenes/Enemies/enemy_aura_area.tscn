@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b57dyewfpax5s"]
+
+[node name="EnemyAuraArea" type="Area2D" groups=["Enemy"]]
+collision_layer = 256
+collision_mask = 256
