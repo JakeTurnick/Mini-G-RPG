@@ -8,13 +8,13 @@ signal interactSignal
 var preventBattle: bool = false
 @onready var enemy_detector = $CharacterBody2D/EnemyDetector
 
-
+	
 func _on_enemy_detector_area_entered(area):
 	if area.is_in_group("Enemy") and !preventBattle:
-		print("Enemy detected - engage battle")
+		print("Enemy detected - engage battle  ", area.get_parent().name)
 		enemy_detector.set_deferred("monitoring", false)
 		prevent_battle_timer.start()
-		#SceneManager.eneterBattleScene()
+		SceneManager.eneterBattleScene(area.get_parent().name)
 	pass # Replace with function body.
 
 

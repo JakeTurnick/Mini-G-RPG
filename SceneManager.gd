@@ -35,11 +35,12 @@ func _deferred_goto_scene(path):
 	await get_tree().create_timer(1.0).timeout
 	transitionCanvas.free()
 	
-func eneterBattleScene():
-	call_deferred("_deferred_eneterBattleScene")
+func eneterBattleScene(EnemyName):
+	print("Entering battle")
+	call_deferred("_deferred_eneterBattleScene", EnemyName)
 	pass
 	
-func _deferred_eneterBattleScene():
+func _deferred_eneterBattleScene(EnemyName):
 	## Method : Pause overworld scene
 	var overworld_scene = get_tree().root.get_node("/root/Game").get_child(0)
 	overworld_scene.process_mode = Node.PROCESS_MODE_DISABLED
@@ -50,17 +51,15 @@ func _deferred_eneterBattleScene():
 	transitionCanvas.get_child(0).PlayFadeIn()
 	await get_tree().create_timer(2.0).timeout
 	
-	
-
-	
 	## Method : orphan child
 	#overworldOrphan = overworld_scene
 	# Pause game overworld - to be unpaused in leaveBattleScene()
 	#get_tree().root.remove_child(overworld_scene)
 	
-	var nextScene = ResourceLoader.load("res://Scenes/Battle/BattleScene.tscn").instantiate()
+	var battleScene = ResourceLoader.load("res://Scenes/Battle/BattleScene.tscn").instantiate()
+	battleScene.enemyName = EnemyName
 	# Add it to the active scene, as child of root.
-	get_tree().root.get_node("/root/Game").add_child(nextScene)
+	get_tree().root.get_node("/root/Game").add_child(battleScene)
 	transitionCanvas.get_child(0).QueueFadeOut()
 	#TODO - find a better wait to await animation length or wait till animation is done
 	await get_tree().create_timer(1.0).timeout
@@ -68,6 +67,7 @@ func _deferred_eneterBattleScene():
 	pass
 	
 func leaveBattleScene():
+	print("Leaving battle")
 	call_deferred("_deferred_leaveBattleScene")
 	pass
 	
@@ -84,9 +84,8 @@ func _deferred_leaveBattleScene():
 	
 	#print("Should be orphans overworld node ", overworldOrphan)
 	# Child 1 should be battle scene
-	var battle_scene = get_tree().root.get_node("/root/Game").get_child(1)
-	# release battleScene
-	battle_scene.queue_free()
+	var battle_scene = get_tree().root.get_node("/root/Game").get_node("BattleScene")
+	battle_scene.free()
 	transitionCanvas.get_child(0).QueueFadeOut()
 	#TODO - find a better wait to await animation length or wait till animation is done
 	await get_tree().create_timer(1.0).timeout

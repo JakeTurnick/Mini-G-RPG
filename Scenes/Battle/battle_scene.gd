@@ -4,21 +4,24 @@ extends Node2D
 @onready var enemy_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/EnemyLabel
 @onready var mini_game_label = $"CanvasLayer/MarginContainer/VBoxContainer/Mini Game Label"
 
-
-var playerName: String
-var enemyName: String
-var miniGameName: String
+var playerName: String = ""
+var enemyName: String = ""
+var miniGameName: String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_label.text = playerName
-	enemy_label.text = enemyName
-	mini_game_label.text = miniGameName
-	
-	await get_tree().create_timer(2.0).timeout
-	SceneManager.leaveBattleScene()
+	if playerName != "":
+		player_label.text = playerName
+	if enemyName != "":
+		enemy_label.text = enemyName
+	if miniGameName != "":
+		mini_game_label.text = miniGameName
+	print("welcome to battle")
+	set_process_input(true)
+	print(is_processing_input())
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+func _on_button_pressed():
+	SceneManager.leaveBattleScene()
+	pass # Replace with function body.

@@ -5,9 +5,18 @@
 [sub_resource type="Theme" id="Theme_itfi6"]
 
 [node name="BattleScene" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_4u7fj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.114, 0.19, 0.94902)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -40,3 +49,9 @@ text = "Enemy goes here"
 [node name="Mini Game Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mini game goes here"
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Leave battle"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
