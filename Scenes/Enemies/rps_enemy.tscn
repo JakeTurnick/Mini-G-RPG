@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8iq4undnuf4y"]
+
+[ext_resource type="Texture2D" uid="uid://rdasgx1vpvbu" path="res://icon.svg" id="1_icixf"]
+[ext_resource type="PackedScene" uid="uid://b57dyewfpax5s" path="res://Scenes/Enemies/enemy_aura_area.tscn" id="2_eve62"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qaa2u"]
+radius = 90.0
+height = 180.0
+
+[node name="RPS_Enemy" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_icixf")
+
+[node name="EnemyAuraArea" parent="." groups=["MG_RPS"] instance=ExtResource("2_eve62")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAuraArea"]
+shape = SubResource("CapsuleShape2D_qaa2u")

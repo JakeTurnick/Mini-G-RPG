@@ -35,12 +35,12 @@ func _deferred_goto_scene(path):
 	await get_tree().create_timer(1.0).timeout
 	transitionCanvas.free()
 	
-func eneterBattleScene(EnemyName):
+func eneterBattleScene(EnemyName, minigame):
 	print("Entering battle")
-	call_deferred("_deferred_eneterBattleScene", EnemyName)
+	call_deferred("_deferred_eneterBattleScene", EnemyName, minigame)
 	pass
 	
-func _deferred_eneterBattleScene(EnemyName):
+func _deferred_eneterBattleScene(EnemyName, minigame):
 	## Method : Pause overworld scene
 	var overworld_scene = get_tree().root.get_node("/root/Game").get_child(0)
 	overworld_scene.process_mode = Node.PROCESS_MODE_DISABLED
@@ -60,6 +60,7 @@ func _deferred_eneterBattleScene(EnemyName):
 	battleScene.enemyName = EnemyName
 	# Add it to the active scene, as child of root.
 	get_tree().root.get_node("/root/Game").add_child(battleScene)
+	Game.load_mini_game(minigame)
 	transitionCanvas.get_child(0).QueueFadeOut()
 	#TODO - find a better wait to await animation length or wait till animation is done
 	await get_tree().create_timer(1.0).timeout

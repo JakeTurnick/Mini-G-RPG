@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://c64kqiuk1u4ql"]
+[gd_scene load_steps=8 format=4 uid="uid://c64kqiuk1u4ql"]
 
 [ext_resource type="PackedScene" uid="uid://s8w3msckx81o" path="res://Scenes/World/Tilesets/dungeon_tile_set.tscn" id="1_lepmx"]
 [ext_resource type="Texture2D" uid="uid://dpipj35bbadyg" path="res://Assets/dungeon-pack-free/atlas.png" id="2_ufakr"]
 [ext_resource type="PackedScene" uid="uid://dde86yipj7oud" path="res://Scenes/Player/PlayerChar.tscn" id="2_xl86d"]
 [ext_resource type="PackedScene" uid="uid://ctfq6j03ule8u" path="res://Scenes/Enemies/fight_dummy.tscn" id="3_f2e32"]
+[ext_resource type="PackedScene" uid="uid://b8iq4undnuf4y" path="res://Scenes/Enemies/rps_enemy.tscn" id="5_kdpto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgyiy"]
 texture = ExtResource("2_ufakr")
@@ -1075,3 +1076,7 @@ position = Vector2(38, 160)
 
 [node name="Fight Dummy" parent="." instance=ExtResource("3_f2e32")]
 position = Vector2(41, 71)
+
+[node name="RPS_Enemy" parent="." instance=ExtResource("5_kdpto")]
+position = Vector2(122, 73)
+scale = Vector2(0.15, 0.15)

@@ -9,12 +9,18 @@ var preventBattle: bool = false
 @onready var enemy_detector = $CharacterBody2D/EnemyDetector
 
 	
-func _on_enemy_detector_area_entered(area):
-	if area.is_in_group("Enemy") and !preventBattle:
-		print("Enemy detected - engage battle  ", area.get_parent().name)
+func _on_enemy_detector_area_entered(enemy_area):
+	if enemy_area.is_in_group("Enemy") and !preventBattle:
+		print("Enemy detected - engage battle  ", enemy_area.get_parent().name)
+		var MG_Type = enemy_area.get_groups()
+		var minigame
+		match MG_Type:
+			"MG_RPS":
+				minigame = Game.Game_Types.RPS
+		
 		enemy_detector.set_deferred("monitoring", false)
 		prevent_battle_timer.start()
-		SceneManager.eneterBattleScene(area.get_parent().name)
+		SceneManager.eneterBattleScene(enemy_area.get_parent().name, minigame)
 	pass # Replace with function body.
 
 

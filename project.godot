@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/Asset-Drawer-bf2922b52f009db8c0ad17dc1ea
 [global_group]
 
 Enemy="An entity that can trigger a battle sequence"
+MG_RPS="Loads RPS type mini game"
 
 [input]
 
