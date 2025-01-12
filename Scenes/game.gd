@@ -24,5 +24,5 @@ func load_mini_game(gameType):
 		Game_Types.RPS:
 			miniGame = ResourceLoader.load("res://Scenes/Battle/MiniGames/mg_rps.tscn").instantiate()
 
-	get_tree().root.get_node("/root/Game/BattleScene").add_child(miniGame)
+	get_tree().root.get_node("/root/Game/BattleScene/CanvasLayer/MarginContainer/VBoxContainer/MiniGame").add_child(miniGame)
 	pass
