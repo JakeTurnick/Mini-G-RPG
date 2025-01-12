@@ -5,10 +5,10 @@
 [node name="MG-RPS" type="Node2D"]
 script = ExtResource("1_wg5mj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="BG_Canvas" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="BG_Canvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -57,6 +57,10 @@ text = "Visuals up here
 layout_mode = 2
 text = "Enemy Visuals
 "
+
+[node name="Shoot_Btn" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Shoot!"
 
 [node name="Controls" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -115,6 +119,7 @@ text = "Scissors
 layout_mode = 2
 text = "Enemy intent indicator"
 
+[connection signal="pressed" from="Control/VBoxContainer/Shoot_Btn" to="." method="_on_shoot_btn_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Controls/MarginContainer/Player controls/Rock_Btn" to="." method="_on_rock_btn_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Controls/MarginContainer/Player controls/Paper_Btn" to="." method="_on_paper_btn_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Controls/MarginContainer/Player controls/Scissors_Btn" to="." method="_on_scissors_btn_pressed"]
