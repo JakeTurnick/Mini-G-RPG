@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://de8lnxl7sn3ms"]
+
+[ext_resource type="Texture2D" uid="uid://bsbv7012jg0ln" path="res://Assets/MiniGames/RPS/paper.png" id="1_srlyy"]
+[ext_resource type="Shader" path="res://Assets/MiniGames/RPS/paper_icon.gdshader" id="2_bww7r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryqed"]
+shader = ExtResource("2_bww7r")
+shader_parameter/frequency = 60.0
+shader_parameter/depth = 0.005
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a1d8u"]
+
+[node name="Paper_Icon" type="Node2D"]
+
+[node name="Paper" type="Sprite2D" parent="."]
+texture = ExtResource("1_srlyy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ryqed")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -26.0
+offset_right = 28.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_a1d8u")
