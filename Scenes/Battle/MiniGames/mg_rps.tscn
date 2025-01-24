@@ -47,16 +47,35 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/Visuals"]
 layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="Label1" type="Label" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_PlayerSelection" type="Label" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
 text = "Visuals up here
 "
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_EnemySelection" type="Label" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
 text = "Enemy Visuals
 "
+
+[node name="VSeparator3" type="VSeparator" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Shoot_Btn" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
