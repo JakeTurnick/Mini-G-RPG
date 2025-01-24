@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnhnjf6fsa55l"]
+
+[ext_resource type="Texture2D" uid="uid://v1gk3ppkgh6s" path="res://Assets/MiniGames/RPS/rock.png" id="1_v0xct"]
+[ext_resource type="Texture2D" uid="uid://dx48ajcxswabl" path="res://Assets/MiniGames/RPS/shine.png" id="2_a6ybw"]
+
+[sub_resource type="Curve" id="Curve_xryjm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.33), 4.04507, 4.04507, 0, 0, Vector2(0.3, 0.85), 0.0, 0.0, 0, 0, Vector2(0.7, 0.85), 0.0, 0.0, 0, 0, Vector2(0.85, 0.33), -3.13011, -3.13011, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_ubs2x"]
+curve = SubResource("Curve_xryjm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nl8uw"]
+lifetime_randomness = 0.25
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 30.0
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 10.0
+angle_min = -378.5
+angle_max = 320.9
+angular_velocity_min = 50.0
+angular_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 5.0
+alpha_curve = SubResource("CurveTexture_ubs2x")
+
+[node name="Rock_Icon" type="Node2D"]
+
+[node name="Rock" type="Sprite2D" parent="."]
+texture = ExtResource("1_v0xct")
+
+[node name="Shine" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_nl8uw")
+texture = ExtResource("2_a6ybw")
+lifetime = 2.0
