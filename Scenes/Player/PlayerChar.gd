@@ -11,12 +11,16 @@ var preventBattle: bool = false
 	
 func _on_enemy_detector_area_entered(enemy_area):
 	if enemy_area.is_in_group("Enemy") and !preventBattle:
-		print("Enemy detected - engage battle  ", enemy_area.get_parent().name)
-		var MG_Type = enemy_area.get_groups()
-		var minigame
-		match MG_Type:
-			"MG_RPS":
-				minigame = Game.Game_Types.RPS
+		print("Enemy detected - engage battle  ", enemy_area.get_parent().name, " ", enemy_area.get_groups())
+		# Check group names for MiniGame group
+		# Set minigame type
+		var MG_Type
+		for MG in enemy_area.get_groups():
+			if MG.split("_", true, 2)[0] == "MG":
+				MG_Type = MG
+			else: MG_Type = "NOGAME"
+		# Takes string, returns Game.GameTypes
+		var minigame = Game.match_game_types(MG_Type)
 		
 		enemy_detector.set_deferred("monitoring", false)
 		prevent_battle_timer.start()

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player_label = $"CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Player options/PlayerLabel"
 @onready var enemy_label = $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/EnemyLabel
-@onready var mini_game_label = $"CanvasLayer/MarginContainer/VBoxContainer/Mini Game Label"
+@onready var mini_game_label = $"CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Mini Game Label"
 @onready var mini_game = $CanvasLayer/MarginContainer/VBoxContainer/MiniGame
 
 var playerName: String = ""
