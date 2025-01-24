@@ -61,6 +61,8 @@ size_flags_horizontal = 0
 text = "Visuals up here
 "
 
+[node name="PlayerSelection_Icon" type="Node2D" parent="Control/VBoxContainer/Visuals/HBoxContainer/Label_PlayerSelection"]
+
 [node name="VSeparator2" type="VSeparator" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
@@ -71,6 +73,9 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "Enemy Visuals
 "
+
+[node name="EnemySelection_Icon" type="Node2D" parent="Control/VBoxContainer/Visuals/HBoxContainer/Label_EnemySelection"]
+position = Vector2(-244, 0)
 
 [node name="VSeparator3" type="VSeparator" parent="Control/VBoxContainer/Visuals/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)

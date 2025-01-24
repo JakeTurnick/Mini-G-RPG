@@ -12,6 +12,8 @@ const SCISSOR_ICON = preload("res://Scenes/Battle/MiniGames/RPS/scissor_icon.tsc
 
 @onready var label_player_selection = $Control/VBoxContainer/Visuals/HBoxContainer/Label_PlayerSelection
 @onready var label_enemy_selection = $Control/VBoxContainer/Visuals/HBoxContainer/Label_EnemySelection
+@onready var player_selection_icon = $Control/VBoxContainer/Visuals/HBoxContainer/Label_PlayerSelection/PlayerSelection_Icon
+@onready var enemy_selection_icon = $Control/VBoxContainer/Visuals/HBoxContainer/Label_EnemySelection/EnemySelection_Icon
 
 
 enum MATCH_STATE { VICTORY, TIE, DEFEAT }
@@ -69,9 +71,6 @@ func _on_shoot_btn_pressed():
 				RPS_MOVE.SCISSORS: 
 					match_state = MATCH_STATE.DEFEAT
 
-
-
-
 # Section: Player controls
 # Updates selection
 func _on_rock_btn_pressed():
@@ -89,21 +88,24 @@ func _on_scissors_btn_pressed():
 	update_player_selection()
 	pass # Replace with function body.
 
+
 # TODO: Update UI with icon, selected button
 func update_player_selection():
+	# Only 1 icon allowed
+	if player_selection_icon.get_child_count() > 0:
+		player_selection_icon.remove_child(player_selection_icon.get_child(0))
 	match player_selection:
 		RPS_MOVE.ROCK:
 			label_player_selection.text = "Rock"
-			
-			label_player_selection.add_sibling(ROCK_ICON.instantiate())
+			player_selection_icon.add_child(ROCK_ICON.instantiate())
 			pass
 		RPS_MOVE.PAPER:
 			label_player_selection.text = "Paper"
-			label_player_selection.add_sibling(SCISSOR_ICON.instantiate())
+			player_selection_icon.add_child(PAPER_ICON.instantiate())
 			pass
 		RPS_MOVE.SCISSORS:
 			label_player_selection.text = "Scissors"
-			label_player_selection.add_sibling(PAPER_ICON.instantiate())
+			player_selection_icon.add_child(SCISSOR_ICON.instantiate())
 			pass
 	pass
 	
